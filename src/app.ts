@@ -1,7 +1,6 @@
 import 'p2';
 import 'pixi';
 import 'phaser';
-import * as Socket from 'socket.io-client';
 
 import * as WebFontLoader from 'webfontloader';
 
@@ -14,8 +13,6 @@ import * as Assets from './assets';
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
         super (config);
-
-        let socket = Socket('http://localhost:3000');
 
         this.state.add('boot', Boot);
         this.state.add('preloader', Preloader);

@@ -9,6 +9,16 @@ export namespace Images {
 }
 
 export namespace Spritesheets {
+    export class SpritesheetsCrystal32328 {
+        static getName(): string { return 'crystal.[32,32,8,0,0]'; }
+
+        static getPNG(): string { return require('assets/spritesheets/crystal.[32,32,8,0,0].png'); }
+        static getFrameWidth(): number { return 32; }
+        static getFrameHeight(): number { return 32; }
+        static getFrameMax(): number { return 8; }
+        static getMargin(): number { return 0; }
+        static getSpacing(): number { return 0; }
+    }
     export class SpritesheetsMetalslugMummy374518 {
         static getName(): string { return 'metalslug_mummy.[37,45,18,0,0]'; }
 
@@ -64,39 +74,11 @@ export namespace Atlases {
 }
 
 export namespace Audio {
-    export class AudioMusic {
-        static getName(): string { return 'music'; }
-
-        static getAC3(): string { return require('assets/audio/music.ac3'); }
-        static getM4A(): string { return require('assets/audio/music.m4a'); }
-        static getMP3(): string { return require('assets/audio/music.mp3'); }
-        static getOGG(): string { return require('assets/audio/music.ogg'); }
-    }
+    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
 }
 
 export namespace Audiosprites {
-    enum AudiospritesSfxSprites {
-        Laser1 = <any>'laser1',
-        Laser2 = <any>'laser2',
-        Laser3 = <any>'laser3',
-        Laser4 = <any>'laser4',
-        Laser5 = <any>'laser5',
-        Laser6 = <any>'laser6',
-        Laser7 = <any>'laser7',
-        Laser8 = <any>'laser8',
-        Laser9 = <any>'laser9',
-    }
-    export class AudiospritesSfx {
-        static getName(): string { return 'sfx'; }
-
-        static getAC3(): string { return require('assets/audiosprites/sfx.ac3'); }
-        static getJSON(): string { return require('assets/audiosprites/sfx.json'); }
-        static getM4A(): string { return require('assets/audiosprites/sfx.m4a'); }
-        static getMP3(): string { return require('assets/audiosprites/sfx.mp3'); }
-        static getOGG(): string { return require('assets/audiosprites/sfx.ogg'); }
-
-        static Sprites = AudiospritesSfxSprites;
-    }
+    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
 }
 
 export namespace GoogleWebFonts {
