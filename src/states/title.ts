@@ -14,7 +14,7 @@ export default class Title extends Phaser.State
 
     public create(): void
     {
-        this.socket = Socket('http://192.168.0.101:3000');
+        this.socket = Socket('http://ec2-54-174-107-230.compute-1.amazonaws.com:3000');
 
         this.backgroundTemplateSprite = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Images.ImagesBackgroundTemplate.getName());
         this.backgroundTemplateSprite.anchor.setTo(0.5);
@@ -68,20 +68,6 @@ export default class Title extends Phaser.State
         this.socket.emit('new_player', {x: 0, y: 0, angle: 0});
     }
     
-    onRemovePlayer(data)
-    {
-        let removePlayer = this.findPlayerById(data.id);
-
-        if (!removePlayer)
-        {
-            console.log('Player not found: ', data.id)
-            return;
-        }
-        
-        removePlayer.sprite.destroy();
-        this.otherPlayers.splice(this.otherPlayers.indexOf(removePlayer), 1);
-    }
-    
     createPlayer()
     {
         this.player = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Spritesheets.SpritesheetsCrystal32328.getName());
@@ -99,6 +85,20 @@ export default class Title extends Phaser.State
         console.log(data);
 
         this.otherPlayers.push(new OtherPlayer(this.game, data.id, data.x, data.y, data.angle));
+    }
+
+    onRemovePlayer(data)
+    {
+        let removePlayer = this.findPlayerById(data.id);
+
+        if (!removePlayer)
+        {
+            console.log('Player not found: ', data.id)
+            return;
+        }
+        
+        removePlayer.sprite.destroy();
+        this.otherPlayers.splice(this.otherPlayers.indexOf(removePlayer), 1);
     }
     
     onEnemyMove(data)

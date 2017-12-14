@@ -9,7 +9,7 @@ app.get('/', function(req, res){
 
 app.use('/',express.static(path.resolve(__dirname + '/../dist')));
 
-http.listen(3000, '192.168.0.101', function(){
+http.listen(3000, '0.0.0.0', function(){
   console.log('listening on *:3000');
 });
 
