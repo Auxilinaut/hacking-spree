@@ -14,7 +14,8 @@ export default class Title extends Phaser.State
 
     public create(): void
     {
-        this.socket = Socket('http://ec2-54-174-107-230.compute-1.amazonaws.com:3000');
+        //localhost for testing
+        this.socket = Socket('ec2-18-233-17-206.compute-1.amazonaws.com:3000');
 
         this.backgroundTemplateSprite = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Images.ImagesBackgroundTemplate.getName());
         this.backgroundTemplateSprite.anchor.setTo(0.5);

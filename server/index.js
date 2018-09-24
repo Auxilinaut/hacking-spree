@@ -1,19 +1,14 @@
-var path = require('path');
 var express = require('express');
 var app = express();
-var http = require('http').Server(app);
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+var path = require('path');
 
 app.get('/', function(req, res){
   res.sendFile(path.resolve(__dirname + '/../dist/index.html'));
 });
 
 app.use('/',express.static(path.resolve(__dirname + '/../dist')));
-
-http.listen(3000, '0.0.0.0', function(){
-  console.log('listening on *:3000');
-});
-
-var io = require('socket.io')(http);
 
 io.on('connection', function(socket){
   console.log('a user connected');
@@ -24,6 +19,10 @@ io.on('connection', function(socket){
 	socket.on("new_player", onNewplayer);
 	// listen for player position update
 	socket.on("move_player", onMovePlayer);
+});
+
+server.listen(3000, function(){
+  console.log('listening on *:3000');
 });
 
 var playerList = [];
